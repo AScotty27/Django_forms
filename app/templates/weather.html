@@ -1,0 +1,36 @@
+<!-- app/templates/weather.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/weather_styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Information</h1>
+        <form method="get" action="{% url 'weather' %}">
+            <input type="text" name="city" placeholder="Enter city name" required>
+            <input type="text" name="state" placeholder="Enter state code (optional)">
+            <input type="text" name="country" placeholder="Enter country code (e.g., US)" required>
+            <button type="submit">Get Weather</button>
+        </form>
+        {% if weather %}
+            {% if weather.error %}
+                <div class="weather-info">
+                    <p>{{ weather.error }}</p>
+                </div>
+            {% else %}
+                <div class="weather-info">
+                    <h2>{{ weather.name }}</h2>
+                    <p>{{ weather.description }}</p>
+                    <p>Temperature: {{ weather.temp }}°F</p>
+                    <p>Feels like: {{ weather.feels_like }}°F</p>
+                    <p>Humidity: {{ weather.humidity }}%</p>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

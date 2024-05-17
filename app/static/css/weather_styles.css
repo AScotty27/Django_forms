@@ -1,0 +1,70 @@
+/* /mnt/data/django_forms_extracted/django_forms/app/static/css/weather_styles.css */
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("/static/img/partly_cloudy_sky.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    background-color: rgba(173, 216, 230, 0.8); /* Light blue with transparency */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19); /* Shadow effects */
+    padding: 20px;
+    max-width: 800px; /* Increased width for better alignment */
+    width: 100%;
+    text-align: center; /* Center text within container */
+}
+
+h1 {
+    color: darkblue;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow wrapping of input fields */
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 10px 5px; /* Margin for spacing between input fields */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    flex: 1 1 200px; /* Flex properties for better alignment */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #FFD700; /* Darker yellow */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 5px; /* Margin for spacing */
+}
+
+button:hover {
+    background-color: #FFC107; /* Even darker yellow */
+}
+
+.weather-info {
+    text-align: center;
+}
+
+.weather-info p {
+    margin: 10px 0;
+    font-size: 18px;
+}
