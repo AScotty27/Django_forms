@@ -82,5 +82,5 @@ ehthumbs.db
 .env
 # End of file
 
-testing.http
+whetherapi.http
 # API Call (has API key)
