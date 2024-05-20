@@ -1,0 +1,16 @@
+<!-- upload.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload IP List</title>
+</head>
+<body>
+    <h1>Upload IP List</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file">Choose Excel file:</label>
+        <input type="file" id="file" name="file" accept=".xlsx,.xls">
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>

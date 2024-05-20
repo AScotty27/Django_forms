@@ -1,0 +1,31 @@
+<!-- upload_results.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IP Checker Results</title>
+</head>
+<body>
+    <h1>IP Checker Results</h1>
+    {% for result in results %}
+        <h2>IP: {{ result.query }}</h2>
+        <ul>
+            <li>Status: {{ result.status }}</li>
+            <li>Country: {{ result.country }}</li>
+            <li>Country Code: {{ result.countryCode }}</li>
+            <li>Region: {{ result.region }}</li>
+            <li>Region Name: {{ result.regionName }}</li>
+            <li>City: {{ result.city }}</li>
+            <li>ZIP: {{ result.zip }}</li>
+            <li>Latitude: {{ result.lat }}</li>
+            <li>Longitude: {{ result.lon }}</li>
+            <li>Timezone: {{ result.timezone }}</li>
+            <li>ISP: {{ result.isp }}</li>
+            <li>Organization: {{ result.org }}</li>
+            <li>AS: {{ result.as }}</li>
+            <li>Reverse: {{ result.reverse }}</li>
+            <li>Mobile: {{ result.mobile }}</li>
+            <li>Proxy: {{ result.proxy }}</li>
+        </ul>
+    {% endfor %}
+</body>
+</html>

@@ -4,6 +4,8 @@ from .forms import PotatoForm
 from django.http import HttpResponse
 import requests
 from django.conf import settings
+import pandas as pd
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 def index(request):
@@ -64,3 +66,33 @@ def weather(request):
         'weather': weather_data
     }
     return render(request, 'weather.html', context)
+
+def check_ip(request):
+    ip = request.GET.get('ip', '')
+    data = {}
+    if ip:
+        url = f'http://ip-api.com/json/{ip}'
+        response = requests.get(url)
+        data = response.json()
+    return render(request, 'ip_check.html', {'data': data})
+
+def upload_file(request):
+    if request.method == 'POST' and request.FILES['file']:
+        file = request.FILES['file']
+        
+        # Read the Excel file in memory
+        df = pd.read_excel(file, engine='openpyxl')
+        
+        # Get the list of IP addresses from the first column
+        ip_list = df.iloc[:, 0].tolist()
+        
+        results = []
+        for ip in ip_list:
+            url = f'http://ip-api.com/json/{ip}'
+            response = requests.get(url)
+            data = response.json()
+            results.append(data)
+        
+        return render(request, 'upload_results.html', {'results': results})
+    
+    return render(request, 'upload.html')
