@@ -1,11 +1,9 @@
-from django.shortcuts import render, redirect
-from decouple import config, Csv
+from django.shortcuts import render
+from decouple import config
 from .forms import PotatoForm
-from django.http import HttpResponse
 import requests
 from django.conf import settings
 import pandas as pd
-from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 def index(request):
